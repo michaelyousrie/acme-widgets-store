@@ -8,4 +8,4 @@ COPY . .
 
 RUN composer install
 
-CMD [ "php", "-a" ]
+CMD [ "composer", "start" ]

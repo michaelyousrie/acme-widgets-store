@@ -43,14 +43,25 @@ This system demonstrates a flexible e-commerce solution with:
 
 ```bash
 # Clone the repository
-git clone [repository-url]
-cd thrivecart-acme-widget
+git clone https://github.com/michaelyousrie/acme-widgets-store
+
+# Change Directory
+cd acme-widgets-store
 
 # Install dependencies
 composer install
 
 # Run the CLI
 php index.php
+```
+
+## Docker (optional)
+```bash
+  # build the image
+  docker build -t acme-widgets-store .
+  
+  # Run the image interactively
+  docker run -it acme-widgets-store
 ```
 
 ## Usage

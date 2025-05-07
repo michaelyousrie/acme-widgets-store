@@ -19,6 +19,7 @@
         }
     },
     "scripts": {
+        "start": "php index.php",
         "test": "phpunit --testdox --colors tests/",
         "analyze": "phpstan analyze src/ --level 9"
     }
