@@ -33,6 +33,8 @@ This system demonstrates a flexible e-commerce solution with:
 - Orders between \$50-\$90: \$2.95 delivery
 - Orders over \$90: Free delivery
 
+#### Users can't delete products so we can boost sales (probably illegal? still funny)
+
 ## Requirements
 - PHP 8.0 or higher
 - Composer
@@ -46,11 +48,20 @@ cd thrivecart-acme-widget
 
 # Install dependencies
 composer install
+
+# Run the CLI
+php index.php
 ```
 
 ## Usage
 
-The system uses a simple object-oriented approach:
+Included is a CLI app that allows adding products to the cart and calculate the total value.
+(Don't make mistakes using the CLI or it'll get mad.)
+```bash
+  php index.php
+```
+
+The system also uses a simple object-oriented approach:
 
 ```php
 // Create products
@@ -75,31 +86,10 @@ $total = $basket->total();
 
 ### Running Tests
 ```bash
-composer test
+  composer test
 ```
 
 ### Static Analysis
 ```bash
-composer analyze
+  composer analyze
 ```
-
-### Code Style Fixing
-```bash
-composer fix-code
-```
-
-## Contributing
-
-1. Ensure all tests pass
-2. Run static analysis: `composer analyze`
-3. Fix code style: `composer fix-code`
-4. Create a pull request with a clear description
-
-## License
-
-[License Type] - See LICENSE file for details
-
-## Support
-
-For issues and feature requests, please use the GitHub issues tracker.
-
