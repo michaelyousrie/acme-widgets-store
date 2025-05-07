@@ -11,14 +11,17 @@ class Basket
      * @var array<Product> $catalogue
      */
     private array $catalogue;
+
     /**
      * @var array<OfferContract> $offers
      */
     private array $offers;
+
     /**
      * @var array<Product> $products
      */
     private array $products = [];
+
 
     /**
      * @param array<Product> $catalogue
@@ -40,7 +43,12 @@ class Basket
         $this->products[] = $product;
     }
 
-    public function total(): float
+    public function empty(): bool
+    {
+        return count($this->products) <= 0;
+    }
+
+    public function total(bool $withInfo = false): float
     {
         $subtotal = array_reduce(
             $this->products,
@@ -50,7 +58,14 @@ class Basket
 
         foreach ($this->offers as $offer) {
             if ($offer instanceof OfferContract) {
-                $subtotal += round($offer->apply($this->products, $subtotal), 2);
+                $value = round($offer->apply($this->products, $subtotal), 2);
+                $subtotal += $value;
+
+                if ($withInfo and $value != 0) {
+                    $color = $value < 0 ? 'green' : 'red'; // green for discount, red for extra.
+
+                    CLI::printWithColor("{$offer->name()}: \${$value}", $color);
+                }
             }
         }
 

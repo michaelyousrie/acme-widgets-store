@@ -15,6 +15,11 @@ class BuyOneGetHalfPriceOffer implements OfferContract
         $this->applicableProductCodes = $productCodes;
     }
 
+    public function name(): string
+    {
+        return "Buy One Get Second Half Price";
+    }
+
     public function apply(array $products, float $subtotal): float
     {
         $relevantProducts = array_filter($products, fn($product) => in_array($product->code(), $this->applicableProductCodes));

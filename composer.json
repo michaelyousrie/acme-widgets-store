@@ -5,7 +5,8 @@
     "require": {
         "php": ">=8.0",
         "phpunit/phpunit": "^9.5",
-        "phpstan/phpstan": "^1.10"
+        "phpstan/phpstan": "^1.10",
+        "ext-readline": "*"
     },
     "autoload": {
         "psr-4": {
