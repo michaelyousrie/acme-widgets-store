@@ -38,7 +38,6 @@ while (true) {
     // Print Shopping Basket
     if (!$basket->empty()) {
         printBasket($basket->products());
-        CLI::printWithColor("Total: {$basket->total()}", 'green');
     }
 
     $product = strtoupper(CLI::ask('Enter product code (q to checkout): ', 'yellow'));
